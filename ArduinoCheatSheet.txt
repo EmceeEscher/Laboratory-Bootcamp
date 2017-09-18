@@ -1,0 +1,104 @@
+ARDUINO LANGUAGE CHEAT SHEET
+FOR NEW PEOPLE AT UBC SOLAR, LIKE DAVID WIDJAJA, FOR EXAMPLE.
+VERSION 1 - 17-09-2017
+
+Started by David Widjaja, Student Number 18950063
+Just so we noobs know what the heck is going on...
+
+########################################
+###### Really Basic Stuff ##############
+########################################
+
+void setup(){
+	//Insert all the stuff you want to do before loops
+	//like initializing stuff
+}
+
+void loop(){
+	//All the loop stuff to do over and over.
+}
+
+const int <Variable> = <Integer Value>
+ 	- Can be used to assign <Variable> to refer to the pin <Integer Value>
+
+#########################################
+######## Mostly for Setup() #############
+#########################################
+
+pinMode(<Variable>, <INPUT/OUTPUT/INPUT_PULLUP>)
+	- Assigns the purpose of the pin at <Variable> to be either INPUT or OUTPUT
+	- INPUT_PULLUP adds an internal resistor to the input, which reverses its value
+
+Serial.begin(int <Variable>)
+	- Sets the connection rate at <Variable> bits/second.
+
+
+#########################################
+######## Basic Output ###################
+#########################################
+
+Serial.write(<ByteVariable>)
+	- prints out the byte to the Serial Monitor/console as it is, 1s and 0s.
+
+Serial.print(int <Variable> OR "Stuff")
+	- prints to the Serial Monitor/console whatever is inside ()
+
+Serial.print(<ByteVariable>, OCT/HEX/DEC/BIN)
+	- prints to the Serial Monitor the byte in whatever base system specified in the second parameter.
+
+Serial.println(<Variable> OR "Stuff")
+	- prints to the Serial Monitor/console whatever is inside (), then adds a new line
+
+
+
+
+
+#########################################
+##### Basic Assignment Statements #######
+#########################################
+
+<Variable1> = analogRead(<Variable2>)
+	- Read the value at the pin of <Variable2> and assign it to <Variable1>. Value can be a reasonable integer value
+
+<Variable1> = digitalRead(<Variable2>)
+	- Read the value at the pin of <Variable2> and assign it to <Variable1>. Value can only be HIGH or LOW
+
+digitalWrite(<Variable>, HIGH/LOW)
+	- Set the value of <Variable> to be either HIGH or LOW.
+
+analogWrite(<Variable1>, <Variable2>)
+	- Seet the value of <Variable1> to the value of <Variable2>
+
+
+##########################################
+######### Useful Functions ###############
+##########################################
+
+delay(<Variable>)
+	- Makes the program wait for <Variable> milliseconds.
+
+<NewValue> = map(<Value>, <Low1>, <High1>, <Low2>, <High2>)
+	- maps the <Value> from the range <Low1> to <High1>, to <Low2> to <High2>
+
+<NewValue> = constrain(<Value>, <Low>, <High>)
+	- constrains <Value> between <Low> and <High>
+	- if <Value> is greater than <High>, the function returns <High>
+	- if <Value> is smaller than <Low>, the function returns <Low>
+
+tone(int <Variable1>,int <Variable2>,int <Variable3>)
+	- Makes a sound according to these specifications
+	- <Variable1> is the pin number connected to a speaker	
+	- <Variable2> is the frequency of the sound		
+	- <Variable3> is the duration of the sound(optional)
+
+<Variable> = millis()
+	- returns how long the program has been running in milliseconds.
+
+noTone(int <Variable>)
+	- Stops the generation of a tone at the pin referred to by <Variable>
+
+############################################
+
+
+
+
