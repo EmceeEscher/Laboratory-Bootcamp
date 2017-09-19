@@ -1,6 +1,6 @@
 ARDUINO LANGUAGE CHEAT SHEET
 FOR NEW PEOPLE AT UBC SOLAR, LIKE DAVID WIDJAJA, FOR EXAMPLE.
-VERSION 1 - 17-09-2017
+VERSION 2 - 19-09-2017
 
 Started by David Widjaja, Student Number 18950063
 Just so we noobs know what the heck is going on...
@@ -21,6 +21,7 @@ void loop(){
 const int <Variable> = <Integer Value>
  	- Can be used to assign <Variable> to refer to the pin <Integer Value>
 
+
 #########################################
 ######## Mostly for Setup() #############
 #########################################
@@ -31,6 +32,7 @@ pinMode(<Variable>, <INPUT/OUTPUT/INPUT_PULLUP>)
 
 Serial.begin(int <Variable>)
 	- Sets the connection rate at <Variable> bits/second.
+	- it is possible to initialize a second connection rate for a different port
 
 
 #########################################
@@ -38,7 +40,7 @@ Serial.begin(int <Variable>)
 #########################################
 
 Serial.write(<ByteVariable>)
-	- prints out the byte to the Serial Monitor/console as it is, 1s and 0s.
+	- prints out the byte to the Serial Monitor/console as an ASCII character.
 
 Serial.print(int <Variable> OR "Stuff")
 	- prints to the Serial Monitor/console whatever is inside ()
@@ -50,7 +52,12 @@ Serial.println(<Variable> OR "Stuff")
 	- prints to the Serial Monitor/console whatever is inside (), then adds a new line
 
 
+#########################################
+##### Control (Condition and Loop) ######
+#########################################
 
+
+(Its exactly the same as C. If you can do APSC 160 you can do this)
 
 
 #########################################
@@ -71,7 +78,7 @@ analogWrite(<Variable1>, <Variable2>)
 
 
 ##########################################
-######### Useful Functions ###############
+######### Useful General Functions #######
 ##########################################
 
 delay(<Variable>)
@@ -97,7 +104,88 @@ tone(int <Variable1>,int <Variable2>,int <Variable3>)
 noTone(int <Variable>)
 	- Stops the generation of a tone at the pin referred to by <Variable>
 
+size(<Variable1>,<Variable2>)
+	- 
+
+
 ############################################
+###### Communications Functions ############
+############################################
+
+Serial.Available()
+	- Checks if data has been sent from the computer and stored into the buffer.
+	- returns TRUE or FALSE
+	- Used as a condition, usually.
+
+<Variable> = Serial.read()
+	- Reads the first byte of data. If none exists, returns -1.
+
+<port>.bufferUntil("\n")
+	- Save data to buffer until "\n"
+
+<port>.readStringUntil("\n")
+	- read data from Serial port until "\n"
+
+
+############################################
+###### processing.serial library ###########
+############################################
+
+Serial.list()
+	- returns an array of available serial ports
+
+<port> = new Serial(this, Serial.list()[0], 9600);
+<port> = new Serial(this, "COM1", 9600);
+	- 1st parameter is probably just a formality
+	- 2nd parameter is the port name/number
+	- 3rd parameter is the communication rate
+
+<Integer> = Serial.parseInt()
+	- returns the next integer in a string of input characters
+
+
+
+
+
+############################################
+####### Others #############################
+############################################
+
+port.write(mouseX)
+	- Write to the Serial port the X position of a mouse
+
+stroke(<Variable>)
+	- draws a line or smthn
+
+fill(<Variable>)
+	- fills in an area
+
+
+size(<Variable1>,Variable2>)
+	- Sets a window size for graph outputs
+
+
+
+background(0,0,0)
+	- sets the background of a screen to RGB colour
+
+trim(<String>)
+	- remove whitespace from a string.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
